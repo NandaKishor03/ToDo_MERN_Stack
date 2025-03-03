@@ -21,17 +21,21 @@ function Home() {
   // Handle Task Completion
   const handleComplete = (id) => {
     axios
-      .put(`http://localhost:5000/update/${id}`) 
-      .then((result) => {location.reload()})
+      .put(`http://localhost:5000/update/${id}`)
+      .then((result) => {
+        location.reload();
+      })
       .catch((err) => console.error("Error Completing Task:", err));
   };
 
   // Handle Task Deletion
   const handleDelete = (id) => {
     axios
-    .delete(`http://localhost:5000/delete/${id}`) 
-    .then((result) => {location.reload()})
-    .catch((err) => console.error("Error Deleteing Task:", err));
+      .delete(`http://localhost:5000/delete/${id}`)
+      .then((result) => {
+        location.reload();
+      })
+      .catch((err) => console.error("Error Deleteing Task:", err));
   };
 
   return (
@@ -51,7 +55,9 @@ function Home() {
               ) : (
                 <BsCircle className="icon" />
               )}
-              <h3 className={todo.done === true ? "line_make": ""}>{todo.task}</h3>
+              <h3 className={todo.done === true ? "line_make" : ""}>
+                {todo.task}
+              </h3>
             </div>
             <div>
               <BsFillTrashFill
