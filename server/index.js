@@ -21,6 +21,12 @@ app.get("/get", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+app.get("/history", (req, res) => {
+  TodoModel.find({ done: true })
+    .then((result) => res.json(result))
+    .catch((err) => res.json(err));
+});
+
 app.post("/add", (req, res) => {
   console.log("Request received", req.body);
   const task = req.body.task;
@@ -41,24 +47,24 @@ app.put("/update/:id", (req, res) => {
   TodoModel.findByIdAndUpdate(id, { done: true }, { new: true })
     .then((updatedTask) => {
       if (!updatedTask) {
-        return res.status(404).json({ error: "Task not found" }); 
+        return res.status(404).json({ error: "Task not found" });
       }
-      res.json(updatedTask); 
+      res.json(updatedTask);
     })
     .catch((err) => {
       console.error("Error updating task:", err);
-      if (!res.headersSent) { 
+      if (!res.headersSent) {
         res.status(500).json({ error: "Error updating task" });
       }
     });
 });
 
-app.delete('/delete/:id',(req,res) => {
-  const {id} = req.params;
+app.delete("/delete/:id", (req, res) => {
+  const { id } = req.params;
   TodoModel.findByIdAndDelete(id)
-  .then(result => res.json(result))
-  .catch(err => res.json(err))
-})
+    .then((result) => res.json(result))
+    .catch((err) => res.json(err));
+});
 
 app.listen(port, () => {
   console.log("Server is running on port 5000");

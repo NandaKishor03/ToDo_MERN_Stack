@@ -22,8 +22,12 @@ function Home() {
   const handleComplete = (id) => {
     axios
       .put(`http://localhost:5000/update/${id}`)
-      .then((result) => {
-        location.reload();
+      .then(() => {
+        setTodos(
+          todos.map((todo) =>
+            todo._id === id ? { ...todo, done: !todo.done } : todo
+          )
+        );
       })
       .catch((err) => console.error("Error Completing Task:", err));
   };
@@ -33,7 +37,7 @@ function Home() {
     axios
       .delete(`http://localhost:5000/delete/${id}`)
       .then((result) => {
-        location.reload();
+        setTodos(todos.filter((todo) => todo._id !== id));
       })
       .catch((err) => console.error("Error Deleteing Task:", err));
   };

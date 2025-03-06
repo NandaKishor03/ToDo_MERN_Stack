@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
+import History from "./components/History";
 import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Home />
+    <div className="app">
+      <nav className="nav">
+        <ul className="nav-list">
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/history" className="nav-link">
+              History
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
     </div>
   );
 }
