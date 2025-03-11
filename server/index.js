@@ -27,17 +27,35 @@ app.get("/history", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.post("/add", (req, res) => {
-  console.log("Request received", req.body);
-  const task = req.body.task;
+// app.post("/add", (req, res) => {  
+//   const task = req.body.task;
+//   const dueDate = req.body.dueDate;
+//   if (!task) {
+//     return res.status(400).json({ message: "Task is Required" });
+//   }
+//   TodoModel.create({
+//     task: task,
+//     dueDate: dueDate,
+//   })
+//   .then((result) => res.json(result))
+//   .catch((err) => res.json(err));
+//   console.log("Request received", req.body);
+// });
+
+app.post("/add", (req, res) => {  
+  console.log("Request received:", req.body);  // Debugging Line
+  const { task, dueDate } = req.body;
+
   if (!task) {
     return res.status(400).json({ message: "Task is Required" });
   }
-  TodoModel.create({
-    task: task,
-  })
+
+  TodoModel.create({ task, dueDate })
     .then((result) => res.json(result))
-    .catch((err) => res.json(err));
+    .catch((err) => {
+      console.error("Error creating task:", err);
+      res.status(500).json({ error: "Error creating task" });
+    });
 });
 
 app.put("/update/:id", (req, res) => {

@@ -85,51 +85,6 @@ p {
   text-decoration: line-through;
 }
 
-.history-container {
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.history-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e8e8e8;
-  font-size: 17px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.history-item:nth-child(odd) {
-  background: #d8d8d8;
-}
-
-.history-icon {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.history-icon.delete:hover {
-  color: darkred;
-}
-
-.history-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.history-description {
-  font-size: 18px;
-  margin-top: 10px;
-}
 
 .app {
   display: flex;
@@ -164,3 +119,25 @@ p {
 .nav-link:hover {
   color: #52db52;
 }
+
+
+/* DueDate CSS */
+.due-date-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+.hidden-calendar-input {
+  padding: 12px;
+  font-size: 19px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px; 
+}
+
+.calendar-icon {
+  width: 32px;
+  height: 34px;
+  cursor: pointer;
+} 

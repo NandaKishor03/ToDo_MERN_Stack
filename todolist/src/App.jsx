@@ -9,7 +9,7 @@ function App() {
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <Link to="/home" className="nav-link">
               Home
             </Link>
           </li>
@@ -21,8 +21,9 @@ function App() {
         </ul>
       </nav>
 
+      {/* Define Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/history" element={<History />} />
       </Routes>
     </div>

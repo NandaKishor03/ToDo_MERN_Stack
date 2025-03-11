@@ -45,7 +45,7 @@ function Home() {
   return (
     <div className="container">
       <h2>Todo List</h2>
-      <Create />
+      <Create setTodos={setTodos} todos={todos} />
       <br />
 
       {todos.length === 0 ? (
@@ -60,7 +60,7 @@ function Home() {
                 <BsCircle className="icon" />
               )}
               <h3 className={todo.done === true ? "line_make" : ""}>
-                {todo.task}
+                {todo.task} - {todo.dueDate}
               </h3>
             </div>
             <div>
@@ -77,3 +77,4 @@ function Home() {
 }
 
 export default Home;
+
