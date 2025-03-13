@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import DueDate from "./DueDate";
-import "./Create.css";
 
-function Create({ setTodos, todos }) {
+function Create({ setTodos }) {
   const [task, setTask] = useState("");
   const [dueDate, setDueDate] = useState("");
 
@@ -17,7 +16,7 @@ function Create({ setTodos, todos }) {
       .then((response) => {
         setTask("");
         setDueDate("");
-        setTodos((prevTodos) => [...prevTodos, response.data]);
+        setTodos(response.data); // Pass the new task directly
       })
       .catch((err) => console.log(err));
   };
@@ -26,8 +25,9 @@ function Create({ setTodos, todos }) {
     <div className="task-container">
       <input
         type="text"
-        placeholder="Enter Task"
+        placeholder="✏️ Add your task..."
         className="task-input"
+        value={task}
         onChange={(e) => setTask(e.target.value)}
       />
       <DueDate onDateSelect={setDueDate} />

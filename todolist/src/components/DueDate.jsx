@@ -25,18 +25,17 @@ const DueDate = ({ onDateSelect }) => {
 
   return (
     <div className="due-date-container">
-      {/* Hidden Input Field for Flatpickr */}
       <input
         ref={calendarInputRef}
         type="text"
         placeholder="Due Date"
-        className="hidden-calendar-input"
+        className="date-input"
         readOnly
       />
 
-      {/* Clickable Calendar Icon */}
       <CalendarMonthRoundedIcon
-        className="cursor-pointer text-blue-500"
+        // className="cursor-pointer text-blue-500"
+        className="icon"
         fontSize="large"
         onClick={() => calendarInputRef.current?.click()}
       />

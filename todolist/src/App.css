@@ -1,143 +1,587 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #f5f5f5;
+  transition: background 0.5s ease;
+  min-height: 100vh;
+  color: #333;
 }
 
-.container {
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 50px;
-  margin-bottom: 500px;
+/* THEME: Ocean Blue Gradient */
+body.gradient-theme {
+  /* background: linear-gradient(135deg, #2c3e50, #4ca1af); */
+  /* background: linear-gradient(135deg, #ff7e5f, #feb47b); */
+  /* background: linear-gradient(135deg, #134e5e, #71b280); */
+  /* background: linear-gradient(135deg, #70e1f5, #ffd194); */
+  /* background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); */
+  background: linear-gradient(135deg, #f56403,#35d457, #423a9d, #f58439);
+  
+  color: #f0f0f0;
 }
-
-h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-input {
-  width: 300px;
-  padding: 10px;
-  border: 2px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-button {
-  background: black;
-  color: white;
-  border: none;
-  padding: 11px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-left: 5px;
-}
-
-button:hover {
-  background: #52db52;
-}
-
-p {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e0e0e0;
-  font-size: 17px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.task:nth-child(odd) {
-  background: #d0d0d0;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
-
-.icon {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.icon.delete:hover {
-  color: darkred;
-}
-
-.line_make{
-  text-decoration: line-through;
-}
-
 
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 768px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+  color: #333;
+}
+
+.app.gradient-theme {
+  /* background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); */
+  /* background: linear-gradient(135deg, #5f2c82, #49a09d); */
+  /* background: linear-gradient(135deg, #134e5e, #71b280); */
+  /* background: linear-gradient(135deg, #70e1f5, #ffd194); */
+  /* background: linear-gradient(135deg, #232526, #414345); */
+  background: linear-gradient(135deg, #02fe39, #8d00bc);
+
+  color: #f0f0f0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 .nav {
-  background: #333;
-  width: 100%;
-  padding: 10px 0;
+  background-color: #333;
+  margin-bottom: 20px;
+  transition: background 0.5s ease;
+}
+
+.gradient-theme .nav {
+  /* background: linear-gradient(90deg, #000046, #1cb5e0); */
+  /* background: linear-gradient(90deg, #603813, #b29f94); */
+  /* background: linear-gradient(90deg, #134e5e, #71b280); */
+  /* background: linear-gradient(90deg, #283c86, #45a247); */
+  background: linear-gradient(90deg, #430101, #035b87);
+
+
 }
 
 .nav-list {
-  list-style: none;
   display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
+  list-style: none;
+  align-items: center;
 }
 
 .nav-item {
-  margin: 0 15px;
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  padding: 16px 24px;
+  display: block;
+  transition: background-color 0.2s;
 }
 
 .nav-link:hover {
-  color: #52db52;
+  background-color: #555;
 }
 
+.gradient-theme .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
-/* DueDate CSS */
-.due-date-container {
+/* Toggle Switch Container */
+.toggle-container {
+  margin-left: auto; /* Push to the right */
+  padding-right: 16px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  /* Match the nav gradient */
+  background: linear-gradient(90deg, #4568dc, #b06ab3);
+
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* TASK CONTAINER STYLING */
+.container {
+  /* padding: 20px; */
+  padding: 0;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+}
+
+.gradient-theme h2 {
+  color: #f0f0f0;
+}
+
+.task-container {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 12px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.hidden-calendar-input {
-  padding: 12px;
-  font-size: 19px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 150px; 
+.gradient-theme .task-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.calendar-icon {
-  width: 32px;
-  height: 34px;
+.task-input {
+  flex: 1;
+  width: 50px;
+  height: 56px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 22px;
+  font-weight: 600;
+  transition: border-color 0.2s;
+  background-color: #fff;
+  color: #333;
+}
+
+
+.date-input {
+  width: 140px; 
+  height: 56px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #333;
+}
+
+.icon {
   cursor: pointer;
+  font-size: 24px;
+}
+
+.gradient-theme .task-input {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #333;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.gradient-theme .task-input:focus {
+  border-color: #1cb5e0;
+  box-shadow: 0 0 0 2px rgba(28, 181, 224, 0.2);
+}
+
+.task-input::placeholder {
+  color: #aaa;
+}
+
+.due-date-container:hover {
+  border-color: #4CAF50;
+}
+
+.gradient-theme .due-date-container:hover {
+  border-color: #1cb5e0;
+}
+
+/* Ensure the calendar icon has the correct size */
+.due-date-container svg {
+  margin-left: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+.add-button {
+  height: 48px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradient-theme .add-button {
+  /* background: linear-gradient(90deg, #000046, #1cb5e0); */
+  background: linear-gradient(90deg, #283c86, #45a247);
+}
+
+.add-button:hover {
+  background-color: #09f215;
+  color: black;
+}
+
+.gradient-theme .add-button:hover {
+  opacity: 0.9;
+}
+
+.add-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.gradient-theme .add-button:disabled {
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* TASK LIST STYLING */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.new-task{
+  margin: 3px 8px;
+}
+
+.gradient-theme .task {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.task:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  background-color: #6bc0f9;
+}
+
+.gradient-theme .task:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.task-new {
+  animation: fadeIn 1.5s;
+  background-color: #e6f7ff;
+  border-left: 4px solid #1890ff;
+}
+
+.gradient-theme .task-new {
+  background-color: rgba(28, 181, 224, 0.2);
+  border-left: 4px solid #1cb5e0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  gap: 16px;
+  flex: 1;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.checkbox:hover {
+  background-color: #4CAF50;
 } 
+
+.task h3 {
+  font-size: 21px;
+  font-weight: bold;
+  color: #333;
+}
+
+.gradient-theme .task h3 {
+  color: #f0f0f0;
+}
+
+.task-date {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #b70f0f;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.gradient-theme .task-date {
+  color: #ccc;
+}
+
+.delete-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  color: #333;
+}
+
+
+.gradient-theme .delete-icon {
+  color: #f0f0f0;
+}
+
+.delete-icon:hover {
+  opacity: 1;
+}
+
+p {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.gradient-theme p {
+  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* HISTORY STYLING */
+.history-container {
+  padding: 20px;
+}
+
+.history-title {
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.gradient-theme .history-title {
+  color: #f0f0f0;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  background-color: #f0f9f0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 36px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.gradient-theme .history-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.history-item:hover {
+  transform: translateX(5px);
+}
+
+.history-item::before {
+  content: "✓";
+  position: absolute;
+  left: 16px;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.gradient-theme .history-item::before {
+  color: #1cb5e0;
+}
+
+.history-date {
+  font-size: 12px;
+  color: #888;
+  margin-left: 8px;
+}
+
+.gradient-theme .history-date {
+  color: #ccc;
+}
+
+.history-loading {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.gradient-theme .history-loading {
+  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.history-empty {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.gradient-theme .history-empty {
+  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* RESPONSIVE STYLING */
+@media (max-width: 576px) {
+  .app {
+    width: 100%;
+  }
+  
+  .nav-link {
+    padding: 12px 16px;
+  }
+  
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+  
+  .slider:before {
+    height: 20px;
+    width: 20px;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+  
+  .task-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* .task-input, .due-date-container, .add-button {
+    width: 100%;
+    margin-bottom: 8px;
+  } */
+
+  .due-date-container {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Provides even spacing between elements */
+  }
+  
+  .task-container > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  .history-item {
+    padding: 12px 12px 12px 32px;
+  }
+  
+  .history-item::before {
+    left: 12px;
+  }
+}

@@ -16,7 +16,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/get", (req, res) => {
-  TodoModel.find()
+  TodoModel.find({ done: false })
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
@@ -27,29 +27,13 @@ app.get("/history", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// app.post("/add", (req, res) => {  
-//   const task = req.body.task;
-//   const dueDate = req.body.dueDate;
-//   if (!task) {
-//     return res.status(400).json({ message: "Task is Required" });
-//   }
-//   TodoModel.create({
-//     task: task,
-//     dueDate: dueDate,
-//   })
-//   .then((result) => res.json(result))
-//   .catch((err) => res.json(err));
-//   console.log("Request received", req.body);
-// });
 
 app.post("/add", (req, res) => {  
-  console.log("Request received:", req.body);  // Debugging Line
+  console.log("Request received:", req.body);  
   const { task, dueDate } = req.body;
-
-  if (!task) {
+  if (!task || !dueDate) {
     return res.status(400).json({ message: "Task is Required" });
   }
-
   TodoModel.create({ task, dueDate })
     .then((result) => res.json(result))
     .catch((err) => {
