@@ -11,7 +11,9 @@ const DueDate = ({ onDateSelect }) => {
     if (calendarInputRef.current) {
       Flatpickr(calendarInputRef.current, {
         dateFormat: "d/m/Y",
-        allowInput: false, // Prevents manual input
+        allowInput: false,
+        minDate: "today",
+        // Prevents manual input
         onClose: (selectedDates) => {
           if (selectedDates.length > 0) {
             const formattedDate = selectedDates[0].toLocaleDateString("en-GB");
@@ -34,7 +36,6 @@ const DueDate = ({ onDateSelect }) => {
       />
 
       <CalendarMonthRoundedIcon
-        // className="cursor-pointer text-blue-500"
         className="icon"
         fontSize="large"
         onClick={() => calendarInputRef.current?.click()}

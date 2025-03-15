@@ -6,15 +6,19 @@ function Home() {
   const [todos, setTodos] = useState([]);
   const [newTaskId, setNewTaskId] = useState(null);
 
+  const user_id = localStorage.getItem("User_id")
+
   // Fetch tasks from backend
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/get")
-      .then((result) => {
-        setTodos(result.data);
-      })
-      .catch((err) => console.error("Error fetching data:", err));
-  }, []);
+    if (user_id){
+      axios
+        .get(`http://localhost:5000/get/${user_id}`)
+        .then((result) => {
+          setTodos(result.data);
+        })
+        .catch((err) => console.error("Error fetching data:", err));
+      }
+    }, [user_id]);
 
   // Handle Task Completion
   const handleComplete = (id) => {

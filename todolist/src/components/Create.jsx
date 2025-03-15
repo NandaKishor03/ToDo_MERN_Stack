@@ -11,14 +11,27 @@ function Create({ setTodos }) {
       alert("Please enter both task and due date");
       return;
     }
+
+    const user_id = localStorage.getItem("User_id")
+ 
     axios
-      .post("http://localhost:5000/add", { task, dueDate })
+      .post("http://localhost:5000/add", { task, dueDate ,user_id})
       .then((response) => {
+        console.log("Response from server:", response.data);
         setTask("");
         setDueDate("");
-        setTodos(response.data); // Pass the new task directly
+
+        // Pass the newly created task to the parent component
+        if (response.data && response.data._id) {
+          setTodos(response.data);
+        } else {
+          console.error("Invalid response data structure:", response.data);
+        }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error("Error adding task:", err);
+        alert("Failed to add task. Please try again.");
+      });
   };
 
   return (

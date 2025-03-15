@@ -4,20 +4,23 @@ import axios from "axios";
 function History() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
+  const user_id = localStorage.getItem("User_id")
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get("http://localhost:5000/history")
-      .then((result) => {
-        setHistory(result.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error getting the Completed Todo's", err);
-        setLoading(false);
-      });
-  }, []);
+    if (user_id){
+      axios
+        .get(`http://localhost:5000/history/${user_id}`)
+        .then((result) => {
+          setHistory(result.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error getting the Completed Todo's", err);
+          setLoading(false);
+        });
+    }
+  }, [user_id]);
 
   return (
     <div className="history-container">
