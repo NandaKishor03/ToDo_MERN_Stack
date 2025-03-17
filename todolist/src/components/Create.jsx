@@ -35,7 +35,7 @@ function Create({ setTodos }) {
   };
 
   return (
-    <div className="task-container">
+    <div className="task-container2">
       <input
         type="text"
         placeholder="✏️ Add your task..."

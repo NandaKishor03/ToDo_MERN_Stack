@@ -4,7 +4,7 @@ const todoSchema = new mongoose.Schema(
   {
     user_id: { type: String, required: true },
     task: { type: String, required: true },
-    dueDate: { type: String, required: true },
+    dueDate: { type: Date, required: true },
     done: { type: Boolean, default: false },
   },
   { collection: "todos" }

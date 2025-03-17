@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-
+import "./SignUp.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +10,7 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,24 +18,24 @@ const Login = () => {
       [name]: value,
     });
   };
-  
+
   const handleLogin = (e) => {
     e.preventDefault();
     const { email, password } = formData;
-    axios.post("http://localhost:5000/login", { email, password })
-    .then((result) => {
-      const user_id = result.data.user_id;
-      console.log("Successfully Logged In", user_id);
-      localStorage.setItem("User_id", user_id);
-      // window.location.href = "/home";
-      navigate("/home")
-      
-    })
-    .catch((err) => {
-      console.log("Error Logging In", err);
-    });
+    axios
+      .post("http://localhost:5000/login", { email, password })
+      .then((result) => {
+        const user_id = result.data.user_id;
+        console.log("Successfully Logged In", user_id);
+        localStorage.setItem("User_id", user_id);
+        // window.location.href = "/home";
+        navigate("/home");
+      })
+      .catch((err) => {
+        console.log("Error Logging In", err);
+      });
   };
-  
+
   return (
     <div className="auth-container">
       <div className="auth-box">
@@ -60,7 +59,9 @@ const Login = () => {
             className="auth-input"
             required
           />
-          <button type="submit" className="auth-btn">Login</button>
+          <button type="submit" className="auth-btn">
+            Login
+          </button>
         </form>
         <p className="auth-text">
           Don't have an account? <Link to="/signup">Sign Up</Link>

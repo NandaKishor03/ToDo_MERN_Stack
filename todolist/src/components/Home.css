@@ -1,0 +1,254 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 50%;
+  margin: 2rem auto; 
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #4a90e2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.category-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-nav button {
+  flex: 1;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-nav button.active {
+  background: linear-gradient(135deg, #4a90e2, #6a82fb);
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(74, 144, 226, 0.3);
+}
+
+.category-nav button:hover {
+  background: linear-gradient(135deg, #4a90e2, #6a82fb);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.task-container1 {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.task-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 12px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.task-category h3 {
+  font-size: 1.5rem;
+  color: #4a90e2;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.task:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.task.task-new {
+  border: 2px solid #4a90e2;
+  background: #e8f0fe;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4a90e2;
+}
+
+.task-content h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+.task-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-left: 0.5rem;
+}
+
+.delete-icon {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.delete-icon:hover {
+  color: #ff3b3b;
+}
+
+.task-container p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+.task-container.create {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+  width: 480px;
+  height: 32px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.add-button {
+  width: 96px;
+  height: 49px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4a90e2, #6a82fb);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.due-date-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.date-input {
+  padding: 0.75rem;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.date-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.icon {
+  color: #4a90e2;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top:0.5rem ;
+}
+
+.icon:hover {
+  color: #6a82fb;
+}
+

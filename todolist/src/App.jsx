@@ -12,7 +12,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Apply theme class to both body and html when darkMode changes
     if (darkMode) {
       document.body.classList.add("gradient-theme");
       document.documentElement.classList.add("gradient-theme");
@@ -21,7 +20,6 @@ function App() {
       document.documentElement.classList.remove("gradient-theme");
     }
 
-    // Clean up function
     return () => {
       document.body.classList.remove("gradient-theme");
       document.documentElement.classList.remove("gradient-theme");
@@ -63,14 +61,6 @@ function App() {
           </li>
         </ul>
       </nav>
-
-      {/* Define Routes */}
-      {/* <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<ProtectedRoute component={Home} />} />
-        <Route path="/history" element={<ProtectedRoute component={History} />} />
-      </Routes> */}
 
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />

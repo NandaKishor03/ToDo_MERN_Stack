@@ -1,24 +1,25 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 
 const DueDate = ({ onDateSelect }) => {
   const calendarInputRef = useRef(null);
-  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     if (calendarInputRef.current) {
       Flatpickr(calendarInputRef.current, {
-        dateFormat: "d/m/Y",
+        dateFormat: "d/m/Y", // Display format for users
+        // altInput: true,
+        altFormat: "d/m/Y", // What users see in input
         allowInput: false,
         minDate: "today",
-        // Prevents manual input
         onClose: (selectedDates) => {
           if (selectedDates.length > 0) {
-            const formattedDate = selectedDates[0].toLocaleDateString("en-GB");
-            setSelectedDate(formattedDate);
-            if (onDateSelect) onDateSelect(formattedDate);
+            const selectedDate = selectedDates[0];
+            // Convert to ISO format for backend
+            const isoDate = selectedDate.toISOString();
+            if (onDateSelect) onDateSelect(isoDate);
           }
         },
       });
@@ -33,12 +34,13 @@ const DueDate = ({ onDateSelect }) => {
         placeholder="Due Date"
         className="date-input"
         readOnly
+        data-input // Required for Flatpickr styling
       />
-
       <CalendarMonthRoundedIcon
         className="icon"
         fontSize="large"
         onClick={() => calendarInputRef.current?.click()}
+        style={{ cursor: "pointer" }}
       />
     </div>
   );

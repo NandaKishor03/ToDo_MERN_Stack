@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import "./SignUp.css";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +11,7 @@ const SignUp = () => {
     password: "",
   });
   const navigate = useNavigate();
-  
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,19 +19,20 @@ const SignUp = () => {
       [name]: value,
     });
   };
-  
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const { username, email, password } = formData;
-    axios.post("http://localhost:5000/signup", { username, email, password })
-    .then((result) => {
-      const user_id = result.data.user_id;
-      console.log("Successfully created User", user_id);
-      localStorage.setItem("User_id", user_id);
-      // window.location.href = "/home";
-      navigate("/home")    
-    })
-    .catch((err) => {
+    axios
+      .post("http://localhost:5000/signup", { username, email, password })
+      .then((result) => {
+        const user_id = result.data.user_id;
+        console.log("Successfully created User", user_id);
+        localStorage.setItem("User_id", user_id);
+        // window.location.href = "/home";
+        navigate("/home");
+      })
+      .catch((err) => {
         console.log("Error creating user", err);
       });
   };
@@ -69,7 +69,9 @@ const SignUp = () => {
             className="auth-input"
             required
           />
-          <button type="submit" className="auth-btn">Sign Up</button>
+          <button type="submit" className="auth-btn">
+            Sign Up
+          </button>
         </form>
         <p className="auth-text">
           Already have an account? <Link to="/login">Login</Link>
