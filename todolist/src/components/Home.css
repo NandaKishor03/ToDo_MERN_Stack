@@ -13,8 +13,11 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   width: 50%;
-  margin: 2rem auto; 
+  /* margin: 2rem auto;  */
+  margin-top: 10px;
   animation: fadeIn 0.5s ease-in-out;
+  background-color: black;
+  position:fixed ;
 }
 
 @keyframes fadeIn {
