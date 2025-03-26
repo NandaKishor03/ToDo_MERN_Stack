@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./History.css"
@@ -7,6 +7,7 @@ function History() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const user_id = localStorage.getItem("User_id")
+  const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
 
   useEffect(() => {
     setLoading(true);
