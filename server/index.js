@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -5,16 +6,16 @@ const TodoModel = require("./Models/Todo");
 const UserInfo = require("./Models/User");
 const { v4: uuidv4 } = require("uuid");
 
-const port = 5000;
+const port = process.env.PORT;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/Nanda")
+  .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Connected to MongoDB Altas");
   })
   .catch((err) => console.log(err));
 

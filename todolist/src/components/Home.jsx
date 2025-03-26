@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Create from "./Create";
 import "./Home.css";
+require("dotenv").config();
 
 function Home() {
   const [todos, setTodos] = useState([]);
@@ -19,7 +20,7 @@ function Home() {
   const fetchTodos = () => {
     if (user_id) {
       axios
-        .get(`http://localhost:5000/get/${user_id}`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/get/${user_id}`)
         .then((result) => {
           setTodos(result.data);
           categorizeTodos(result.data);
@@ -42,7 +43,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .put(`http://localhost:5000/update/${id}`)
+      .put(`${process.env.REACT_APP_BACKEND_URL}/update/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error updating task:", err);
@@ -57,7 +58,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .delete(`http://localhost:5000/delete/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/delete/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error Deleting Task:", err);

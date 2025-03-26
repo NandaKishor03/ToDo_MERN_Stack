@@ -1,3 +1,4 @@
+require("dotenv").config();
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./History.css"
@@ -11,7 +12,7 @@ function History() {
     setLoading(true);
     if (user_id){
       axios
-        .get(`http://localhost:5000/history/${user_id}`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/history/${user_id}`)
         .then((result) => {
           setHistory(result.data);
           setLoading(false);

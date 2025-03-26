@@ -1,3 +1,4 @@
+require("dotenv").config();
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -23,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = formData;
     axios
-      .post("http://localhost:5000/login", { email, password })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/login`, { email, password })
       .then((result) => {
         const user_id = result.data.user_id;
         console.log("Successfully Logged In", user_id);
