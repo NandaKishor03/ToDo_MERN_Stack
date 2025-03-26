@@ -26,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
     const { username, email, password } = formData;
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/signup`, { username, email, password })
+      .post(`${REACT_APP_BACKEND_URL}/signup`, { username, email, password })
       .then((result) => {
         const user_id = result.data.user_id;
         console.log("Successfully created User", user_id);

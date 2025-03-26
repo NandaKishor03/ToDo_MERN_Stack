@@ -17,7 +17,7 @@ function Create({ setTodos }) {
     const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
  
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/add`, { task, dueDate ,user_id})
+      .post(`${REACT_APP_BACKEND_URL}/add`, { task, dueDate ,user_id})
       .then((response) => {
         console.log("Response from server:", response.data);
         setTask("");

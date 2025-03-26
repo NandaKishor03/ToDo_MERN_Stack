@@ -21,7 +21,7 @@ function Home() {
   const fetchTodos = () => {
     if (user_id) {
       axios
-        .get(`${process.env.REACT_APP_BACKEND_URL}/get/${user_id}`)
+        .get(`${REACT_APP_BACKEND_URL}/get/${user_id}`)
         .then((result) => {
           setTodos(result.data);
           categorizeTodos(result.data);
@@ -44,7 +44,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/update/${id}`)
+      .put(`${REACT_APP_BACKEND_URL}/update/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error updating task:", err);
@@ -59,7 +59,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/delete/${id}`)
+      .delete(`${REACT_APP_BACKEND_URL}/delete/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error Deleting Task:", err);
