@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Create from "./Create";
 import "./Home.css";
-require("dotenv").config();
 
 function Home() {
   const [todos, setTodos] = useState([]);
@@ -15,13 +14,12 @@ function Home() {
   });
 
   const user_id = localStorage.getItem("User_id");
-  // const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
 
   // Function to fetch and update todos
   const fetchTodos = () => {
     if (user_id) {
       axios
-        .get(`${REACT_APP_BACKEND_URL}/get/${user_id}`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/get/${user_id}`)
         .then((result) => {
           setTodos(result.data);
           categorizeTodos(result.data);

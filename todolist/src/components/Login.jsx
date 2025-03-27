@@ -1,4 +1,3 @@
-require("dotenv").config();
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -6,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
 const Login = () => {
-  // const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
   const [formData, setFormData] = useState({
     email: "",
     password: "",
