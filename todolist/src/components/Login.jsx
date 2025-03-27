@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = formData;
     axios
-      .post("https://todo-backend-uzg4.onrender.com/login", { email, password })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/login`, { email, password })
       .then((result) => {
         const user_id = result.data.user_id;
         console.log("Successfully Logged In", user_id);
