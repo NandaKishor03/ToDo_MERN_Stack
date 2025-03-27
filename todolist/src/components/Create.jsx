@@ -15,7 +15,7 @@ function Create({ setTodos }) {
     const user_id = localStorage.getItem("User_id")
  
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/add`, { task, dueDate ,user_id})
+      .post("https://todo-backend-uzg4.onrender.com/add", { task, dueDate ,user_id})
       .then((response) => {
         console.log("Response from server:", response.data);
         setTask("");

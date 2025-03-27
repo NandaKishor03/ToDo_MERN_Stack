@@ -13,7 +13,7 @@ function History() {
     if (user_id){
       
       axios
-        .get(`${process.env.REACT_APP_BACKEND_URL}/history/${user_id}`)
+        .get(`https://todo-backend-uzg4.onrender.com/history/${user_id}`)
         .then((result) => {
           setHistory(result.data);
           setLoading(false);

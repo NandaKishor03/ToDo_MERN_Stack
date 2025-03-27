@@ -20,14 +20,11 @@ const SignUp = () => {
     });
   };
   
-  console.log("Backend URL outside:", process.env.REACT_APP_BACKEND_URL); 
-
   const handleSignUp = (e) => {
     e.preventDefault();
     const { username, email, password } = formData;
-    console.log("Backend URL signup:", process.env.REACT_APP_BACKEND_URL); 
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/signup`, { username, email, password })
+      .post("https://todo-backend-uzg4.onrender.com/signup", { username, email, password })
       .then((result) => {
         const user_id = result.data.user_id;
         console.log("Successfully created User", user_id);
