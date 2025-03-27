@@ -9,10 +9,28 @@ const { v4: uuidv4 } = require("uuid");
 const port = process.env.PORT;
 
 const app = express();
-app.use(cors({
-  origin: "https://to-do-mern-stack-delta.vercel.app",
-  credentials: true
-}));
+// app.use(cors({
+//   origin: "https://to-do-mern-stack-delta.vercel.app",
+//   credentials: true
+// }));
+
+const allowedOrigins = [
+  "https://to-do-mern-stack-delta.vercel.app",
+  "https://todo-git-main-nanda-kishors-projects.vercel.app", // Add your new frontend URL here
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // If you're using cookies/auth
+  })
+);
 
 // app.use(cors({ origin: "*" }));
 
