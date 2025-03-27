@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 import React, { useState } from "react";
 import axios from "axios";
 import DueDate from "./DueDate";
@@ -14,10 +14,10 @@ function Create({ setTodos }) {
     }
 
     const user_id = localStorage.getItem("User_id")
-    const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
+    // const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
  
     axios
-      .post(`${REACT_APP_BACKEND_URL}/add`, { task, dueDate ,user_id})
+      .post(`${process.env.REACT_APP_BACKEND_URL}/add`, { task, dueDate ,user_id})
       .then((response) => {
         console.log("Response from server:", response.data);
         setTask("");

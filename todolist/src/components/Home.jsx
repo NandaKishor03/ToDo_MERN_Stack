@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Create from "./Create";
 import "./Home.css";
-// require("dotenv").config();
+require("dotenv").config();
 
 function Home() {
   const [todos, setTodos] = useState([]);
@@ -15,7 +15,7 @@ function Home() {
   });
 
   const user_id = localStorage.getItem("User_id");
-  const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
+  // const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
 
   // Function to fetch and update todos
   const fetchTodos = () => {
@@ -44,7 +44,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .put(`${REACT_APP_BACKEND_URL}/update/${id}`)
+      .put(`${process.env.REACT_APP_BACKEND_URL}/update/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error updating task:", err);
@@ -59,7 +59,7 @@ function Home() {
     categorizeTodos(updatedTodos);
 
     axios
-      .delete(`${REACT_APP_BACKEND_URL}/delete/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/delete/${id}`)
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error Deleting Task:", err);

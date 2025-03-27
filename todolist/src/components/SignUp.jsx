@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
+  // const REACT_APP_BACKEND_URL="https://your-backend.onrender.com"
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -26,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
     const { username, email, password } = formData;
     axios
-      .post(`${REACT_APP_BACKEND_URL}/signup`, { username, email, password })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/signup`, { username, email, password })
       .then((result) => {
         const user_id = result.data.user_id;
         console.log("Successfully created User", user_id);
