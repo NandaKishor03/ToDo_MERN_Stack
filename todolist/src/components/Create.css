@@ -1,0 +1,60 @@
+/* Create.css */
+.task-container2 {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.task-input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 250px;
+}
+
+.add-button {
+  padding: 0.8rem 2rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-button:hover {
+  background: #1976d2;
+}
+
+/* Date Picker */
+.due-date-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 150px;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .task-container2 {
+    flex-direction: column;
+  }
+
+  .task-input,
+  .date-input {
+    width: 100%;
+  }
+}

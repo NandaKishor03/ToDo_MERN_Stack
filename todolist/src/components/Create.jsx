@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import DueDate from "./DueDate";
+import "./Create.css";
 
 function Create({ setTodos }) {
   const [task, setTask] = useState("");

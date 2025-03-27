@@ -1,4 +1,4 @@
-.auth-container {
+/* .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,4 +70,67 @@
 
 .auth-text a:hover {
   text-decoration: underline;
+} */
+
+
+
+
+
+
+
+
+
+
+
+/* SignUp.css */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.auth-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.auth-text a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
 }

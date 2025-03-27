@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   color: #333;
@@ -190,7 +190,6 @@ input:checked + .slider:before {
   margin: 2rem auto;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -199,5 +198,101 @@ input:checked + .slider:before {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+} */
+
+
+
+
+
+
+
+
+/* App.css */
+.app {
+  min-height: 100vh;
+}
+
+.nav {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .toggle-container {
+    margin-top: 1rem;
   }
 }
