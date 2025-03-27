@@ -14,6 +14,7 @@ function Home() {
   });
 
   const user_id = localStorage.getItem("User_id");
+  console.log("Backend URL inside:", process.env.REACT_APP_BACKEND_URL); 
 
   // Function to fetch and update todos
   const fetchTodos = () => {
@@ -35,6 +36,7 @@ function Home() {
 
   // Handle Task Completion
   const handleComplete = (id) => {
+    console.log("Backend URL complete:", process.env.REACT_APP_BACKEND_URL); 
     const updatedTodos = todos.map((todo) =>
       todo._id === id ? { ...todo, done: !todo.done } : todo
     );

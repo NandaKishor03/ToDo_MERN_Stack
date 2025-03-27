@@ -9,12 +9,12 @@ const { v4: uuidv4 } = require("uuid");
 const port = process.env.PORT;
 
 const app = express();
-// app.use(cors({
-//   origin: "https://to-do-mern-stack-delta.vercel.app",
-//   credentials: true
-// }));
+app.use(cors({
+  origin: "https://to-do-mern-stack-delta.vercel.app",
+  credentials: true
+}));
 
-app.use(cors({ origin: "*" }));
+// app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 

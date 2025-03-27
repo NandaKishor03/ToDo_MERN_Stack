@@ -6,10 +6,12 @@ function History() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const user_id = localStorage.getItem("User_id")
+ 
 
   useEffect(() => {
     setLoading(true);
     if (user_id){
+      
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/history/${user_id}`)
         .then((result) => {
