@@ -117,11 +117,11 @@ function Home() {
               checked={todo.done || false}
               onChange={() => handleComplete(todo._id)}
             />
-            {/* <div>
+            <div>
               <h3>
                 {todo.task} <span className="task-date">{todo.dueDate}</span>
               </h3>
-            </div> */}
+            </div>
           </div>
           <button
             className="delete-icon"
