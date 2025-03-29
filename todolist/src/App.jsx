@@ -130,6 +130,7 @@ function App() {
                       type="checkbox"
                       checked={darkMode}
                       onChange={toggleTheme}
+                      
                     />
                     <span className="slider round"></span>
                   </label>
