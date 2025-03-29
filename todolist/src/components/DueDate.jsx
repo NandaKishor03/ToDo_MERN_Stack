@@ -10,7 +10,6 @@ const DueDate = ({ onDateSelect }) => {
     if (calendarInputRef.current) {
       Flatpickr(calendarInputRef.current, {
         dateFormat: "d/m/Y", // Display format for users
-        // altInput: true,
         altFormat: "d/m/Y", // What users see in input
         allowInput: false,
         minDate: "today",
@@ -34,7 +33,7 @@ const DueDate = ({ onDateSelect }) => {
         placeholder="Due Date"
         className="date-input"
         readOnly
-        data-input // Required for Flatpickr styling
+        data-input
       />
       <CalendarMonthRoundedIcon
         className="icon"

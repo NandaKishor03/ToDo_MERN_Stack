@@ -6,7 +6,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./css/App.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -147,7 +147,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<ProtectedRoute component={Home} />} />
-          <Route path="/history" element={<ProtectedRoute component={History} />}/>
+          <Route
+            path="/history"
+            element={<ProtectedRoute component={History} />}
+          />
         </Routes>
       </div>
     </div>

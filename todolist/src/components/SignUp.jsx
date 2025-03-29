@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css";
+import "../css/SignUp.css";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +29,6 @@ const SignUp = () => {
         const user_id = result.data.user_id;
         console.log("Successfully created User", user_id);
         localStorage.setItem("User_id", user_id);
-        // window.location.href = "/home";
         navigate("/home");
       })
       .catch((err) => {

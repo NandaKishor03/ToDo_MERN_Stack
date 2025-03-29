@@ -27,7 +27,7 @@
 
 @media (max-width: 768px) {
   .auth-box {
-    max-width: 55%; 
+    max-width: 65%; 
     padding: 1.2rem;
   }
 
@@ -44,6 +44,7 @@
   .auth-input {
     padding: 0.7rem !important;
     font-size: 0.9rem !important;
+    /* width: 200px; */
   }
 
   .auth-btn {

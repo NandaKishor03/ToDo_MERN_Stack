@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import DueDate from "./DueDate";
-import "./Create.css";
+import "../css/Create.css";
 
 function Create({ setTodos }) {
   const [task, setTask] = useState("");
@@ -22,7 +22,6 @@ function Create({ setTodos }) {
         setTask("");
         setDueDate("");
 
-        // Pass the newly created task to the parent component
         if (response.data && response.data._id) {
           setTodos(response.data);
         } else {

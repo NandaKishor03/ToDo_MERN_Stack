@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Create from "./Create";
-import "./Home.css";
+import "../css/Home.css";
 
 function Home() {
   const [todos, setTodos] = useState([]);
@@ -15,7 +15,6 @@ function Home() {
 
   const user_id = localStorage.getItem("User_id");
 
-  // Function to fetch and update todos
   const fetchTodos = () => {
     if (user_id) {
       axios
@@ -46,7 +45,7 @@ function Home() {
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error updating task:", err);
-        fetchTodos(); // Revert on error
+        fetchTodos(); 
       });
   };
 
@@ -61,7 +60,7 @@ function Home() {
       .then(() => fetchTodos())
       .catch((err) => {
         console.error("Error Deleting Task:", err);
-        fetchTodos(); // Revert on error
+        fetchTodos(); 
       });
   };
 
