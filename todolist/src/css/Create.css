@@ -8,7 +8,7 @@
 
 .task-input {
   flex: 1;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
   font-size: 1rem;
@@ -24,11 +24,12 @@
 }
 
 .add-button {
-  padding: 1rem 2rem;
+  padding: 0.6rem 2rem;
   background: #6366f1;
   color: white;
   border: none;
   border-radius: 8px;
+  font-size: 20px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -53,6 +54,7 @@
   font-size: 1rem;
   background: white;
   cursor: pointer;
+  padding: 0.8rem;
 }
 
 .icon {
